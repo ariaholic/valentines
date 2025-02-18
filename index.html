@@ -88,7 +88,7 @@
     </div>
     
     <audio autoplay loop>
-        <source src="https://github.com/ariaholic/valentines/raw/refs/heads/main/assets/Up%20-%20Married%20Life.mp3" type="audio/mpeg">
+        <source src="https://raw.githubusercontent.com/ariaholic/valentines/main/assets/Up%20-%20Married%20Life.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <script>
@@ -111,23 +111,22 @@
                 "You are my safe place and my home."
             ];
             const images = [
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/00.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/01.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/02.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/03.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/04.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/05.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/06.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/07.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/08.jpeg",
-                "https://raw.githubusercontent.com/ariaholic/valentines/refs/heads/main/assets/09.jpeg"
-                
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/00.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/01.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/02.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/03.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/04.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/05.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/06.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/07.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/08.jpeg",
+                "https://raw.githubusercontent.com/ariaholic/valentines/main/assets/09.jpeg"
             ];
             const slideshowContainer = document.getElementById("slideshow-container");
             reasons.forEach((reason, index) => {
                 const slide = document.createElement("div");
                 slide.classList.add("slide");
-                slide.style.backgroundImage = `url(${images[index % images.length]})`;
+                slide.style.backgroundImage = `url(${images[index]})`;
                 
                 const overlay = document.createElement("div");
                 overlay.classList.add("overlay");
