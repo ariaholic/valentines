@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Reasons I Love You</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+            background-color: #ffb6c1;
+        }
+        .welcome-page {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: url('https://imagekit.io/public/share/czpflgien/image1.jpg') no-repeat center center/cover;
+            z-index: 10;
+        }
+        .welcome-text {
+            font-size: 42px;
+            color: white;
+            background: rgba(255, 0, 102, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse 1.5s infinite;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 24px;
+            color: white;
+            background-color: #ff1493;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #ff69b4;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .hidden {
+            display: none;
+        }
+        .slide {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slide.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-page" id="welcome-page">
+        <div class="welcome-text">💖 Will you be my Valentine? 💖</div>
+        <button class="btn" onclick="startExperience()">Yes! Show me the reasons 💕</button>
+    </div>
+    
+    <div id="reasons-page" class="hidden">
+        <div id="slideshow-container">
+            <!-- Slides will be added dynamically -->
+        </div>
+    </div>
+    
+    <audio autoplay loop>
+        <source src="your-music-url.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        function startExperience() {
+            document.getElementById("welcome-page").style.display = "none";
+            document.getElementById("reasons-page").classList.remove("hidden");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const reasons = [
+                "You make me smile every single day.",
+                "Your laughter is the most beautiful sound in the world.",
+                "You always know how to make me feel better.",
+                "You support my dreams and encourage me.",
+                "You are the kindest person I know.",
+                "You always find new ways to make me happy.",
+                "Your hugs make everything better.",
+                "You believe in me, even when I don’t believe in myself.",
+                "You make even the most boring days feel special.",
+                "You are my safe place and my home."
+            ];
+            const images = [
+                "https://imagekit.io/public/share/czpflgien/image2.jpg",
+                "https://imagekit.io/public/share/czpflgien/image3.jpg",
+                "https://imagekit.io/public/share/czpflgien/image4.jpg",
+                "https://imagekit.io/public/share/czpflgien/image5.jpg",
+                "https://imagekit.io/public/share/czpflgien/image6.jpg"
+            ];
+            const slideshowContainer = document.getElementById("slideshow-container");
+            reasons.forEach((reason, index) => {
+                const slide = document.createElement("div");
+                slide.classList.add("slide");
+                slide.style.backgroundImage = `url(${images[index % images.length]})`;
+                
+                const overlay = document.createElement("div");
+                overlay.classList.add("overlay");
+                overlay.textContent = reason;
+                
+                slide.appendChild(overlay);
+                slideshowContainer.appendChild(slide);
+            });
+            
+            let currentIndex = 0;
+            const slides = document.querySelectorAll(".slide");
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove("show");
+                    if (i === index) {
+                        slide.classList.add("show");
+                    }
+                });
+            }
+            document.addEventListener("wheel", function (event) {
+                if (event.deltaY > 0) {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                }
+                showSlide(currentIndex);
+            });
+            showSlide(currentIndex);
+        });
+    </script>
+</body>
+</html>
